@@ -1,0 +1,47 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Inscripcion {
+
+- alumno: Alumno
+- materiasAInscribirse: List<Materia>
+
++ agregarMaterias(Materia): void
++ aprobada(): Boolean
+
+
+}
+
+
+class Materia {
+
+- nombre: String
+- correlativas: List<Materia>
+
++ agregarCorrelativas(Materia): void
+
+
+}
+
+
+class Alumno {
+
+- nombre: String
+- legajo: int
+- materiasAprobadas: List<Materia>
+
++ agregarMateriasAprobadas(Materia): void
+
+
+}
+
+
+Inscripcion -->" * " Materia
+Inscripcion --> Alumno
+
+Alumno -->" * " Materia
+
+
+
+@enduml
